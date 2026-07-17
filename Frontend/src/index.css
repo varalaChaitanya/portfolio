@@ -1,0 +1,36 @@
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+.active-nav {
+  color: rgb(59 130 246);
+  font-weight: 600;
+}
+
+.active-nav span:first-child::after {
+  width: 100%;
+}
+
+.mobile-active {
+  background: rgba(59, 130, 246, 0.12);
+  color: rgb(59, 130, 246);
+  border-radius: 12px;
+}
