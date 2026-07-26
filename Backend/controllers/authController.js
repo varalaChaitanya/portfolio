@@ -55,11 +55,11 @@ const loginAdmin = async (req, res) => {
     // Send Cookie
 
     res.cookie("adminToken", token, {
-      httpOnly: true,
-      secure: false, // change to true after deployment (HTTPS)
-      sameSite: "lax",
-      maxAge: Number(process.env.COOKIE_EXPIRES_IN), // 30 minutes
-    });
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+  maxAge: Number(process.env.COOKIE_EXPIRES_IN),
+});
 
     return res.status(200).json({
       success: true,
@@ -85,10 +85,10 @@ const loginAdmin = async (req, res) => {
 const logoutAdmin = async (req, res) => {
   try {
     res.clearCookie("adminToken", {
-      httpOnly: true,
-      secure: false, // true after HTTPS deployment
-      sameSite: "lax",
-    });
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+});
 
     return res.status(200).json({
       success: true,
