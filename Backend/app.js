@@ -1,5 +1,5 @@
 const express = require("express");
-const dotenv = require("dotenv");
+
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const projectRoutes = require("./routes/projectRoutes");
@@ -8,7 +8,7 @@ const githubRoutes = require("./routes/githubRoutes");
 
 const leetcodeRoutes = require("./routes/leetcodeRoutes");
 // Load Environment Variables
-dotenv.config();
+
 
 
 // Create Express Application
