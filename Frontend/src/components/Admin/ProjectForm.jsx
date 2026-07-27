@@ -60,28 +60,35 @@ const ProjectForm = ({
   };
 
   const submitHandler = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const data = new FormData();
+  const data = new FormData();
 
-    Object.keys(formData).forEach((key) => {
-      if (key === "technologies") {
-        formData.technologies.forEach((tech) =>
-          data.append("technologies", tech)
-        );
-      } else {
-        data.append(key, formData[key]);
-      }
-    });
+  data.append("title", formData.title);
+  data.append("slug", formData.slug);
+  data.append("description", formData.description);
+  data.append("githubUrl", formData.githubUrl);
+  data.append("liveUrl", formData.liveUrl);
+  data.append("displayOrder", formData.displayOrder);
+  data.append("featured", formData.featured);
 
-    onSubmit(data);
-  };
+  formData.technologies.forEach((tech) => {
+    data.append("technologies", tech);
+  });
+
+  if (formData.image instanceof File) {
+    data.append("image", formData.image);
+  }
+
+  onSubmit(data);
+};
 
   return (
     <form
       onSubmit={submitHandler}
       className="space-y-6"
     >
+     
       <input
         type="file"
         accept="image/*"
