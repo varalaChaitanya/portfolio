@@ -115,8 +115,7 @@ const Projects = () => {
           projects.length > 0 && (
             <ProjectGrid
   projects={projects}
-  onEdit={handleEdit}
-  onDelete={handleDeleteClick}
+
   onView={handleProjectClick}
 />
           )}
